@@ -4,5 +4,4 @@ from django.http import HttpResponse
 
 # Home page view
 def home(request):
-    response = HttpResponse("Welcome to my portfolio!")
-    return response
+    return render(request, 'home.html')
