@@ -19,7 +19,7 @@ from django.urls import path, include
 from portfolio import views
 
 urlpatterns = [
+    path('', include('portfolio.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('', views.home, name='home'),
 ]
