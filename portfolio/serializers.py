@@ -1,7 +1,11 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Education, Experience, Project, NewUser, Skill
+from .models import Education, Experience, Project, CustomUser, Skill, Programming
 
+class ProgrammingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Programming
+        fields = '__all__'
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
@@ -9,7 +13,7 @@ class SkillSerializer(serializers.ModelSerializer):
     
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = NewUser
+        model = CustomUser
         fields = '__all__'
 
 class EducationSerializer(serializers.ModelSerializer):
