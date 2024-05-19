@@ -7,8 +7,9 @@ import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme } from './utils/Themes';
 
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
+import HomeSection from './components/HeroSection';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Home } from '@mui/icons-material';
 
 const Body = styled.div`
   background-color: ${({theme}) => theme.bg};
@@ -85,7 +86,7 @@ function App() {
         <Navbar />
         <Body>
           <Wrapper>
-            <HeroSection/>
+            <HomeSection/>
           </Wrapper>
         </Body>
       </Router>

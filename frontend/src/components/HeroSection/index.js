@@ -1,11 +1,28 @@
 import React from "react";
+import UserDataComponent from "../../data/userData";
+import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent } from "./HomeStyledComponents";
+import { Title } from "@mui/icons-material";
 
-const HeroSection = () => {
+
+const HomeSection = () => {
     return (
-        <div className="w-1/2 mx-auto text-center text-2xl">
-        Home
+        <div id="home">
+            <HomeContainer>
+                <HomeBg>
+                </HomeBg>
+                <HomeContent>
+                    <HomeLeftContent>
+                        <UserDataComponent>
+                        </UserDataComponent>
+                    </HomeLeftContent>
+
+                    <HomeRightContent>
+                    
+                    </HomeRightContent>
+                </HomeContent>
+            </HomeContainer>
         </div>
     );
 };
 
-export default HeroSection;
+export default HomeSection;

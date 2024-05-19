@@ -1,12 +1,12 @@
 import React from "react";
 import { Nav, NavContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, ButtonContainer, GitHubButton, MobileMenu, MobileMenuButton, MobileMenuLink, MobileLink, MobileMenuItems, MobileNavLogo } from "./NavbarStyledComponents";
 import { FaBars } from "react-icons/fa";
+import { useTheme } from "styled-components";
 
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
-
-
+    const theme = useTheme();
     return (
         <Nav>
             <NavContainer>
@@ -43,44 +43,43 @@ const Navbar = () => {
                 </ButtonContainer>
             </NavContainer>
 
-            {
-                open && (
-                    <MobileMenu open={open}>
-                        <MobileNavLogo>
-                            <img src="/logo.png" alt="logo"></img>
-                        </MobileNavLogo>
-                        <MobileMenuItems>
-                            <MobileLink 
-                            href="#about"
-                            onClick={() => setOpen(!open)}
-                            >
-                            About
-                            </MobileLink>
-                            <MobileLink
-                            href="#skills"
-                            onClick={() => setOpen(!open)}
-                            >
-                            Skills
-                            </MobileLink>
-                            <MobileLink
-                            href="#projects"
-                            onClick={() => setOpen(!open)}
-                            >
-                            Projects
-                            </MobileLink>
-                            <MobileLink
-                            href="#contact"
-                            onClick={() => setOpen(!open)}
-                            >
-                            Contact
-                            </MobileLink>
-                            <MobileLink
-                            href="#resume"
-                            onClick={() => setOpen(!open)}
-                            >
-                            Resume
-                            </MobileLink>
-                            <GitHubButton
+            {open && (
+                <MobileMenu open={open}>
+                    <MobileNavLogo>
+                        <img src="/logo.png" alt="logo"></img>
+                    </MobileNavLogo>
+                    <MobileMenuItems>
+                        <MobileLink 
+                        href="#about"
+                        onClick={() => {setOpen(!open)}}
+                        >
+                        About
+                        </MobileLink>
+                        <MobileLink
+                        href="#skills"
+                        onClick={() => {setOpen(!open)}}
+                        >
+                        Skills
+                        </MobileLink>
+                        <MobileLink
+                        href="#projects"
+                        onClick={() => {setOpen(!open)}}
+                        >
+                        Projects
+                        </MobileLink>
+                        <MobileLink
+                        href="#contact"
+                        onClick={() => {setOpen(!open)}}
+                        >
+                        Contact
+                        </MobileLink>
+                        <MobileLink
+                        href="#resume"
+                        onClick={() => {setOpen(!open)}}
+                        >
+                        Resume
+                        </MobileLink>
+                        <GitHubButton
                             style={
                                 {
                                     width: "80%",
@@ -89,13 +88,15 @@ const Navbar = () => {
                                 }
                             
                             }
-                            href = {user}>
-                                GitHub Profile
-                            </GitHubButton>
-                        </MobileMenuItems>
-                    </MobileMenu>
-                )
-            }
+                            href="/"
+                            target="_blank"
+                        >
+                            GitHub Profile
+                        </GitHubButton>
+                    </MobileMenuItems>
+                </MobileMenu>
+            )
+        }
 
         </Nav>
     );

@@ -38,6 +38,14 @@ const UserDataComponent = () => {
         setProjects(projectsData)
     }
 
+    return (
+        <div>
+            <h1>{user.name}</h1>
+            <h2>{user.email}</h2>
+            <h3>{user.bio}</h3>
+        </div>
+    );
+
 }
 
 export default UserDataComponent;
