@@ -28,15 +28,15 @@ class CustomUser(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
 
 class Education(models.Model):
-    degree = models.CharField(max_length=100)
-    degree_level = models.CharField(max_length=100)
-    a_level = models.CharField(max_length=100)
-    a_level_subjects_and_grades = models.TextField()
+    degree = models.CharField(max_length=100, blank=True)
+    degree_level = models.CharField(max_length=100, blank=True)
+    a_level = models.CharField(max_length=100, blank=True)
+    a_level_subjects_and_grades = models.TextField(blank=True)
     school = models.CharField(max_length=100)
     year_start = models.CharField(max_length=100)
     year_end = models.CharField(max_length=100)
     description = models.TextField()
-    ordinal = models.IntegerField()
+    logo = models.ImageField(upload_to='uploads/', blank=True)
 
     def __str__(self):
         return self.school
@@ -46,7 +46,7 @@ class Experience(models.Model):
     year_start = models.CharField(max_length=100)
     year_end = models.CharField(max_length=100)
     description = models.TextField()
-    ordinal = models.IntegerField()
+    logo = models.ImageField(upload_to='uploads/', blank=True)
 
     def __str__(self):
         return self.company
@@ -57,7 +57,6 @@ class Project(models.Model):
     image = models.ImageField(upload_to='uploads/')
     url = models.URLField()
     programming_language = models.ManyToManyField(Programming, related_name='projects')
-    ordinal = models.IntegerField()
 
     def __str__(self):
         return self.title
