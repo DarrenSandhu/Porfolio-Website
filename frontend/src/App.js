@@ -1,6 +1,38 @@
 import logo from './logo.svg';
 import { useState, useEffect } from 'react';
+
+
 import './App.css';
+import styled, { ThemeProvider } from 'styled-components';
+import { lightTheme } from './utils/Themes';
+
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+const Body = styled.div`
+  background-color: ${({theme}) => theme.bg};
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+`;
+
+const Wrapper = styled.div`
+  background: linear-gradient(
+    38.73deg,
+    rgba(135, 206, 235, 0.15) 0%,  // Light Sky Blue with slight transparency
+    rgba(135, 206, 250, 0) 50%     // Lighter Sky Blue, fading to transparent
+  ),
+  linear-gradient(
+    141.27deg,
+    rgba(240, 128, 128, 0) 50%,    // Light Coral, fading to transparent
+    rgba(240, 128, 128, 0.15) 100% // Light Coral with slight transparency
+  );
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
+`;
+
+
 
 function App() {
   const [educations, setEducations] = useState([])
@@ -48,9 +80,16 @@ function App() {
   }
 
   return (
-    <div className="w-1/2 mx-auto text-center text-2xl">
-      Home
-    </div>
+    <ThemeProvider theme={lightTheme}>
+      <Router>
+        <Navbar />
+        <Body>
+          <Wrapper>
+            <HeroSection/>
+          </Wrapper>
+        </Body>
+      </Router>
+    </ThemeProvider>
   );
 }
 
