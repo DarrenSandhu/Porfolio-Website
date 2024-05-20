@@ -1,28 +1,63 @@
-import React from "react";
-import UserDataComponent from "../../data/userData";
-import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent } from "./HomeStyledComponents";
-import { Title } from "@mui/icons-material";
+import React, { useState, useEffect } from 'react';
+import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent, Title, SubTitle, TextLoop, Span } from "./HomeStyledComponents";
+import { Typography } from "@mui/material"; // Use Typography from @mui/material instead of Title
+import TypeWriter from 'typewriter-effect';
 
 
 const HomeSection = () => {
-    return (
-        <div id="home">
-            <HomeContainer>
-                <HomeBg>
-                </HomeBg>
-                <HomeContent>
-                    <HomeLeftContent>
-                        <UserDataComponent>
-                        </UserDataComponent>
-                    </HomeLeftContent>
+  const [user, setUser] = useState({});
 
-                    <HomeRightContent>
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+        const userResponse = await fetch('/users')
+        const userData = await userResponse.json()
+        const user = userData[0]
+        setUser(user)
+        console.log(user.skills)
+    } 
+    catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+
+  return (
+    <div id="about">
+      <HomeContainer>
+        <HomeBg />
+        <HomeContent>
+          <HomeLeftContent>
+            <Title>
+                {user.name}
+            </Title>
+            <TextLoop>
+                I am a
+                <Span>
+                    <TypeWriter
+                        options={{
+                            strings: ['Software Engineer', 'Full Stack Developer', 'Web Developer'],
+                            autoStart: true,
+                            loop: true,
+                        }}
+                    />
                     
-                    </HomeRightContent>
-                </HomeContent>
-            </HomeContainer>
-        </div>
-    );
+                </Span>
+            </TextLoop>
+            <SubTitle>
+                {user.bio}
+            </SubTitle>
+          </HomeLeftContent>
+          <HomeRightContent>
+            {/* Other content */}
+          </HomeRightContent>
+        </HomeContent>
+      </HomeContainer>
+    </div>
+  );
 };
 
 export default HomeSection;
+

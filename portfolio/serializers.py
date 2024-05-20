@@ -12,9 +12,10 @@ class SkillSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
 class UserSerializer(serializers.ModelSerializer):
+    skills = SkillSerializer(many=True)
     class Meta:
         model = CustomUser
-        fields = '__all__'
+        fields = ['id', 'email', 'name', 'bio', 'image', 'date_of_birth', 'skills']
 
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
