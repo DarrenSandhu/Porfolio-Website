@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent, Title, SubTitle, TextLoop, Span } from "./HomeStyledComponents";
-import { Typography } from "@mui/material"; // Use Typography from @mui/material instead of Title
+import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent, Title, SubTitle, TextLoop, Span, ResumeButton, Image, ImageContainer } from "./HomeStyledComponents";
 import TypeWriter from 'typewriter-effect';
+import ImageBackground from '../AnimatedBackground';
+
+
 
 
 const HomeSection = () => {
   const [user, setUser] = useState({});
+  const [skills, setSkills] = useState([]);
 
   useEffect(() => {
     getData();
@@ -16,8 +19,11 @@ const HomeSection = () => {
         const userResponse = await fetch('/users')
         const userData = await userResponse.json()
         const user = userData[0]
+        const skills = user.skills
+
+        setSkills(skills)
         setUser(user)
-        console.log(user.skills)
+        console.log(skills)
     } 
     catch (error) {
       console.error('Error fetching user data:', error);
@@ -27,18 +33,21 @@ const HomeSection = () => {
   return (
     <div id="about">
       <HomeContainer>
-        <HomeBg />
+        <HomeBg>
+            <ImageBackground />
+        </HomeBg>
         <HomeContent>
           <HomeLeftContent>
             <Title>
-                {user.name}
+                Hi 👋, <br />
+                I am {user.name}
             </Title>
             <TextLoop>
                 I am a
                 <Span>
                     <TypeWriter
                         options={{
-                            strings: ['Software Engineer', 'Full Stack Developer', 'Web Developer'],
+                            strings: skills,
                             autoStart: true,
                             loop: true,
                         }}
@@ -47,15 +56,26 @@ const HomeSection = () => {
                 </Span>
             </TextLoop>
             <SubTitle>
-                {user.bio}
+                {user.bio?.split('\n').map((line, index) => (
+                    <React.Fragment key={index}>
+                    {line}
+                    <br />
+                    </React.Fragment>
+                ))}
             </SubTitle>
+            <ResumeButton href="" target='_blank'>
+                Check Resume
+            </ResumeButton>
           </HomeLeftContent>
           <HomeRightContent>
-            {/* Other content */}
+            <ImageContainer>
+                <Image src='/profile.jpeg' alt="profile" />
+            </ImageContainer>
           </HomeRightContent>
         </HomeContent>
       </HomeContainer>
     </div>
+    
   );
 };
 

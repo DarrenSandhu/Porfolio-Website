@@ -12,7 +12,7 @@ class SkillSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
 class UserSerializer(serializers.ModelSerializer):
-    skills = SkillSerializer(many=True)
+    skills = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Skill.objects.all())
     class Meta:
         model = CustomUser
         fields = ['id', 'email', 'name', 'bio', 'image', 'date_of_birth', 'skills']
