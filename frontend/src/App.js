@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import HomeSection from './components/HeroSection';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Home } from '@mui/icons-material';
+import Skills from './components/Skills';
 
 const Body = styled.div`
   background-color: ${({theme}) => theme.bg};
@@ -85,8 +86,9 @@ function App() {
       <Router>
         <Navbar />
         <Body>
+        <HomeSection/>
           <Wrapper>
-            <HomeSection/>
+            <Skills />
           </Wrapper>
         </Body>
       </Router>
