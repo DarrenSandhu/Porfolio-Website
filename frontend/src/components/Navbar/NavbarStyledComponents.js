@@ -231,3 +231,24 @@ export const MobileNavLogo = styled(LinkR)`
     padding: 0 0px;
   }
 `;
+
+export const DropdownMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+`;
+
+export const DropdownItem = styled.a`
+  padding: 12px 16px;
+  display: block;
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    background: ${({ theme }) => theme.bgLight};
+  }
+`;

@@ -55,6 +55,7 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     date = models.CharField(max_length=100)
     description = models.TextField()
+    category = models.CharField(max_length=100)
     image = models.ImageField(upload_to='uploads/')
     url = models.URLField()
     programming_language = models.ManyToManyField(Programming, related_name='projects')

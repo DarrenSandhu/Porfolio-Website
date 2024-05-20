@@ -1,12 +1,20 @@
 import React from "react";
-import { Nav, NavContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, ButtonContainer, GitHubButton, MobileMenu, MobileMenuButton, MobileMenuLink, MobileLink, MobileMenuItems, MobileNavLogo } from "./NavbarStyledComponents";
+import { Nav, NavContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, ButtonContainer, GitHubButton, MobileMenu, MobileMenuButton, MobileMenuLink, MobileLink, MobileMenuItems, MobileNavLogo, DropdownMenu, DropdownItem } from "./NavbarStyledComponents";
 import { FaBars } from "react-icons/fa";
 import { useTheme } from "styled-components";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
     return (
         <Nav>
             <NavContainer>
@@ -21,13 +29,21 @@ const Navbar = () => {
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
-                        <NavLink href="#about">About</NavLink>
+                        <NavLink as={Link} to="/">Home</NavLink>
                     </NavItem>
+                    {/* <NavItem>
+                        <NavLink as="div" onClick={toggleDropdown}>
+                            Home <IoIosArrowDown />
+                        </NavLink>
+                            {dropdownOpen && (
+                                <DropdownMenu>
+                                    <DropdownItem href="#about">About</DropdownItem>
+                                    <DropdownItem href="#skills">Skills</DropdownItem>
+                                </DropdownMenu>
+                            )}
+                    </NavItem> */}
                     <NavItem>
-                        <NavLink href="#skills">Skills</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#projects">Projects</NavLink>
+                        <NavLink as={Link} to="/projects">Projects</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink href="#contact">Contact</NavLink>
