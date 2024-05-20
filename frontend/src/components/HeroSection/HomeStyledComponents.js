@@ -158,7 +158,7 @@ export const ResumeButton = styled.a`
     border-radius: 20px;
     cursor: pointer;
     font-size: 20px;
-    font-weight: 250;
+    font-weight: 650;
     transition: all 0.2s ease-in-out !important;
     background: hsla(271, 100%, 50%, 1);
 
