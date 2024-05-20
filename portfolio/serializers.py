@@ -28,6 +28,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
+    programming_language = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Programming.objects.all())
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = ['id', 'title', 'description', 'date', 'image', 'url', 'programming_language']

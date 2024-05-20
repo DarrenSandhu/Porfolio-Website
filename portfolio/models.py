@@ -53,6 +53,7 @@ class Experience(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
+    date = models.CharField(max_length=100)
     description = models.TextField()
     image = models.ImageField(upload_to='uploads/')
     url = models.URLField()

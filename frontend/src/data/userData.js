@@ -440,7 +440,7 @@ export const education = [
     },
   ];
   
-  export const projects = [
+export const projects = [
     {
       id: 11,
       title: "DecisionHub",
