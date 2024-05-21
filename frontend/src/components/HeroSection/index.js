@@ -69,7 +69,7 @@ const HomeSection = () => {
           </HomeLeftContent>
           <HomeRightContent>
             <ImageContainer>
-                <Image src='/profile.jpeg' alt="profile" />
+                <Image src={user.image} alt="profile" />
             </ImageContainer>
           </HomeRightContent>
         </HomeContent>

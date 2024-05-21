@@ -1,5 +1,5 @@
+import { useState, useEffect } from "react";
 import styled from 'styled-components';
-
 import Projects from '../components/Projects';
 
 const Body = styled.div`
@@ -27,9 +27,10 @@ const Wrapper = styled.div`
 
 
 const ProjectsPage = () => {
+    const [openModal, setOpenModal] = useState({ state: false, project: null });
     return (
         <Wrapper>
-            <Projects />
+            <Projects openModal={openModal} setOpenModal={setOpenModal} />
         </Wrapper>
     )
 };

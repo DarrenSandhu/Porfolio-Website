@@ -17,6 +17,10 @@ class UserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ['id', 'email', 'name', 'bio', 'image', 'date_of_birth', 'skills']
 
+    def get_image_url(self, obj):
+        request = self.context.get('request')
+        return request.build_absolute_uri(obj.image.url)
+
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
@@ -31,4 +35,8 @@ class ProjectSerializer(serializers.ModelSerializer):
     programming_language = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Programming.objects.all())
     class Meta:
         model = Project
-        fields = ['id', 'title', 'description', 'date', 'image', 'url', 'programming_language']
+        fields = ['id', 'title', 'description', 'category', 'date', 'image', 'url', 'programming_language']
+    
+    def get_image_url(self, obj):
+        request = self.context.get('request')
+        return request.build_absolute_uri(obj.image.url)
