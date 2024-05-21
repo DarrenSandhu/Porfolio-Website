@@ -169,9 +169,10 @@ export const Button = styled.a`
     `}
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   &:hover {
-    background-color: ${({ theme }) => theme.primary + 99};
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.white};
   }
   @media only screen and (max-width: 600px) {
     font-size: 12px;

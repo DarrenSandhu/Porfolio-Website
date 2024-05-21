@@ -26,8 +26,8 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
           <Title>{project?.title}</Title>
           <Date>{project.date}</Date>
           <Tags>
-            {project?.programming_language.map((tag) => (
-              <Tag>{tag}</Tag>
+            {project?.programming_language.map((tag, index) => (
+              <Tag key={`tag-${index}`}>{tag}</Tag>
             ))}
           </Tags>
           <Desc>{project?.description}</Desc>

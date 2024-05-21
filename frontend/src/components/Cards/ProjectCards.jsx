@@ -21,17 +21,17 @@ const Card = styled.div`
     background-color: ${({ theme }) => theme.card};
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 0 12px 4px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px 4px rgba(0, 116, 300, 0.2);
     overflow: hidden;
     padding: 26px 20px;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
     &:hover {
         transform: translateY(-10px);
-        box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
-        filter: brightness(1.1);
+        box-shadow: 0 0 50px 4px rgba(173, 216, 230, 0.5);
+        filter: brightness(1.05);
     }
     &:hover ${Button} {
         display: block;
@@ -127,8 +127,10 @@ const ProjectCards = ({project,setOpenModal}) => {
         <Card onClick={() => setOpenModal({state: true, project: project})}>
             <Image src={project.image}/>
             <Tags>
-                {project.tags?.map((tag, index) => (
-                <Tag>{tag}</Tag>
+                {project.programming_language?.map((tag, index) => (
+                <Tag key={`tag-${index}`}>
+                    {tag}
+                </Tag>
                 ))}
             </Tags>
             <Details>
@@ -137,8 +139,8 @@ const ProjectCards = ({project,setOpenModal}) => {
                 <Description>{project.description}</Description>
             </Details>
             <Members>
-                {project.member?.map((member) => (
-                    <Avatar src={member.img}/>
+                {project.member?.map((member, index) => (
+                    <Avatar src={member.img} key={`member-${index}`}/>
                 ))}
             </Members>
             {/* <Button>View Project</Button> */}
