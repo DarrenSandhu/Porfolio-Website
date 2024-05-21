@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from 'styled-components';
 import Projects from '../components/Projects';
+import ProjectDetails from '../components/Projects/ProjectDetails';
 
 const Body = styled.div`
   background-color: ${({theme}) => theme.bg};
@@ -31,6 +32,12 @@ const ProjectsPage = () => {
     return (
         <Wrapper>
             <Projects openModal={openModal} setOpenModal={setOpenModal} />
+            {openModal.state && (
+                <ProjectDetails
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+                />
+            )}
         </Wrapper>
     )
 };

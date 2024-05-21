@@ -1,7 +1,11 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Education, Experience, Project, CustomUser, Skill, Programming
+from .models import Education, Experience, Project, CustomUser, Skill, Programming, Category
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
 class ProgrammingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Programming
@@ -33,6 +37,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
 
 class ProjectSerializer(serializers.ModelSerializer):
     programming_language = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Programming.objects.all())
+    category = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Category.objects.all())
     class Meta:
         model = Project
         fields = ['id', 'title', 'description', 'category', 'date', 'image', 'url', 'programming_language']

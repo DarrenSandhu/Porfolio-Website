@@ -2,9 +2,17 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from rest_framework import permissions, viewsets
-from .serializers import UserSerializer, EducationSerializer, ExperienceSerializer, ProjectSerializer, SkillSerializer, ProgrammingSerializer
-from .models import Education, Experience, Project, CustomUser, Skill, Programming
+from .serializers import UserSerializer, EducationSerializer, ExperienceSerializer, ProjectSerializer, SkillSerializer, ProgrammingSerializer, CategorySerializer
+from .models import Education, Experience, Project, CustomUser, Skill, Programming, Category
 
+class CategoryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
 class ProgrammingViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -62,3 +70,4 @@ class ProjectViewSet(viewsets.ModelViewSet):
         Add request to serializer context.
         """
         return {'request': self.request}
+
