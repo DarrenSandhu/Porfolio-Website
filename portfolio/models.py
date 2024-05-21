@@ -24,6 +24,7 @@ class CustomUser(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
     image = models.ImageField(upload_to='uploads/', blank=True)
+    github = models.URLField()
     skills = models.ManyToManyField(Skill)
     date_of_birth = models.DateField(null=True, blank=True)
 

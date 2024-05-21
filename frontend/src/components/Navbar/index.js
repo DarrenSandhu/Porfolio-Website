@@ -3,7 +3,7 @@ import { Nav, NavContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, Butt
 import { FaBars } from "react-icons/fa";
 import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 
@@ -14,6 +14,25 @@ const Navbar = () => {
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
+    };
+
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = async () => {
+        try {
+            const userResponse = await fetch('/users')
+            const userData = await userResponse.json()
+            const user = userData[0]
+
+            setUser(user)
+        } 
+        catch (error) {
+        console.error('Error fetching user data:', error);
+        }
     };
     return (
         <Nav>
@@ -53,7 +72,7 @@ const Navbar = () => {
                     </NavItem>
                 </NavMenu>
                 <ButtonContainer>
-                    <GitHubButton> 
+                    <GitHubButton href={user.github} target="_blank"> 
                         GitHub Profile
                     </GitHubButton>
                 </ButtonContainer>

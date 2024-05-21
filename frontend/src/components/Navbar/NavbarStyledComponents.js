@@ -100,7 +100,7 @@ export const ButtonContainer = styled.div`
     }
 `;
 
-export const GitHubButton = styled.button`
+export const GitHubButton = styled.a`
     background: transparent;
     color: ${({theme}) => theme.primary};
     border: 1.8px solid ${({theme}) => theme.primary};

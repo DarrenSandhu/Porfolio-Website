@@ -63,8 +63,8 @@ const HomeSection = () => {
                     </React.Fragment>
                 ))}
             </SubTitle>
-            <ResumeButton href="" target='_blank'>
-                Check Resume
+            <ResumeButton href="/">
+                Check My CV
             </ResumeButton>
           </HomeLeftContent>
           <HomeRightContent>

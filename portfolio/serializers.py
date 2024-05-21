@@ -19,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
     skills = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Skill.objects.all())
     class Meta:
         model = CustomUser
-        fields = ['id', 'email', 'name', 'bio', 'image', 'date_of_birth', 'skills']
+        fields = ['id', 'email', 'name', 'bio', 'image', 'date_of_birth', 'github', 'skills']
 
     def get_image_url(self, obj):
         request = self.context.get('request')
