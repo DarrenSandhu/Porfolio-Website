@@ -68,7 +68,7 @@ const Navbar = () => {
                         <NavLink as={Link} to="/contact">Contact</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="#resume">Resume</NavLink>
+                        <NavLink as={Link} to="/resume">Resume</NavLink>
                     </NavItem>
                 </NavMenu>
                 <ButtonContainer>

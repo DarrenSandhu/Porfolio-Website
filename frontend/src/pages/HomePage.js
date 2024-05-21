@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import HomeSection from '../components/HeroSection';
+import HomeSection from '../components/HomeSection';
 import { Home } from '@mui/icons-material';
 import Skills from '../components/Skills';
 import { Body, Wrapper } from './PagesStyledComponents';

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent, Title, SubTitle, TextLoop, Span, ResumeButton, Image, ImageContainer } from "./HomeStyledComponents";
 import TypeWriter from 'typewriter-effect';
 import ImageBackground from '../AnimatedBackground';
+import { Link } from 'react-router-dom';
 
 
 
@@ -63,7 +64,7 @@ const HomeSection = () => {
                     </React.Fragment>
                 ))}
             </SubTitle>
-            <ResumeButton href="/">
+            <ResumeButton as={Link} to="/resume">
                 Check My CV
             </ResumeButton>
           </HomeLeftContent>
