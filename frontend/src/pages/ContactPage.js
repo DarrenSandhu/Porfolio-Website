@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import styled from 'styled-components';
-import Projects from '../components/Projects';
-import ProjectDetails from '../components/Projects/ProjectDetails';
+import Contact from "../components/Contact";
+
 
 
 const Wrapper = styled.div`
@@ -21,19 +20,12 @@ const Wrapper = styled.div`
 
 
 
-const ProjectsPage = () => {
-    const [openModal, setOpenModal] = useState({ state: false, project: null });
+const ContactPage = () => {
     return (
         <Wrapper>
-            <Projects openModal={openModal} setOpenModal={setOpenModal} />
-            {openModal.state && (
-                <ProjectDetails
-                openModal={openModal}
-                setOpenModal={setOpenModal}
-                />
-            )}
+            <Contact/>
         </Wrapper>
     )
 };
 
-export default ProjectsPage;
+export default ContactPage;
