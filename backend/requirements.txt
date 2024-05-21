@@ -7,4 +7,6 @@ PyJWT
 pytz
 sqlparse
 psycopg2-binary
-python-dotenv
+python-dotenvpython-dotenv
+django-cors-headers
+djangorestframework-simplejwt

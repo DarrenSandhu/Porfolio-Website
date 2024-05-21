@@ -5,10 +5,11 @@ import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { MenuRounded } from "@mui/icons-material";
 
 
 const Navbar = () => {
-    const [open, setOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const theme = useTheme();
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -40,11 +41,8 @@ const Navbar = () => {
                 <NavLogo>
                     <img src="/logo.png" alt="logo"></img>
                 </NavLogo>
-                <MobileIcon>
-                    <FaBars onClick={() => {
-                        setOpen(!open)
-                        }}
-                     />
+                <MobileIcon onClick={() => setIsOpen(!isOpen)}>
+                    <MenuRounded style={{ color: "inherit" }} />
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
@@ -78,60 +76,33 @@ const Navbar = () => {
                 </ButtonContainer>
             </NavContainer>
 
-            {open && (
-                <MobileMenu open={open}>
-                    <MobileNavLogo>
-                        <img src="/logo.png" alt="logo"></img>
-                    </MobileNavLogo>
-                    <MobileMenuItems>
-                        <MobileLink 
-                        href="#about"
-                        onClick={() => {setOpen(!open)}}
-                        >
+            {isOpen && (
+
+                <MobileMenu isOpen={isOpen}>
+                    <NavLink onClick={() => setIsOpen(!isOpen)} as={Link} to="/">
                         About
-                        </MobileLink>
-                        <MobileLink
-                        href="#skills"
-                        onClick={() => {setOpen(!open)}}
-                        >
-                        Skills
-                        </MobileLink>
-                        <MobileLink
-                        href="#projects"
-                        onClick={() => {setOpen(!open)}}
-                        >
+                    </NavLink>
+                    <NavLink onClick={() => setIsOpen(!isOpen)} as={Link} to="/projects">
                         Projects
-                        </MobileLink>
-                        <MobileLink
-                        href="#contact"
-                        onClick={() => {setOpen(!open)}}
-                        >
+                    </NavLink>
+                    <NavLink onClick={() => setIsOpen(!isOpen)} as={Link} to="/contact">
                         Contact
-                        </MobileLink>
-                        <MobileLink
-                        href="#resume"
-                        onClick={() => {setOpen(!open)}}
-                        >
+                    </NavLink>
+                    <NavLink onClick={() => setIsOpen(!isOpen)} as={Link} to="/resume">
                         Resume
-                        </MobileLink>
-                        <GitHubButton
-                            style={
-                                {
-                                    width: "80%",
-                                    height: "100%",
-                                    padding: "0 6px"
-                                }
-                            
-                            }
-                            href="/"
-                            target="_blank"
+                    </NavLink>
+                    <GitHubButton
+                        href={user.github}
+                        target="_Blank"
+                        style={{
+                            background: theme.primary,
+                            color: theme.text_primary,
+                        }}
                         >
-                            GitHub Profile
-                        </GitHubButton>
-                    </MobileMenuItems>
+                        Github Profile
+                    </GitHubButton>
                 </MobileMenu>
-            )
-        }
+            )}
 
         </Nav>
     );
