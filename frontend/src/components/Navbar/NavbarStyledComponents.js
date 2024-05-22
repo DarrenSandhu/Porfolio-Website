@@ -1,19 +1,25 @@
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
 
+
 export const Nav = styled.div`
-    background-color: ${({theme}) => theme.card_light};
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    @media screen and (max-width: 960px) {
-        trastion: 0.8s all ease;
-    }
+  background-color: ${({ theme }) => theme.card_light};
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  
+  ${({ isErrorPage }) => isErrorPage && `
+      background-color: black; /* Change background color to black if it's an error page */
+  `}
+
+  @media screen and (max-width: 960px) {
+      transition: 0.8s all ease;
+  }
 `;
 
 export const NavContainer = styled.div`
@@ -130,8 +136,16 @@ export const NavLink = styled.a`
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     &:hover {
-        color: ${({theme}) => theme.primary};
+      color: ${({theme}) => theme.primary};
     }
+
+    ${({ isErrorPage }) => isErrorPage && `
+      color: white; /* Change text color to white if it's an error page */
+      &:hover {
+        color: ${({ theme }) => theme.primary};
+      }
+  `}
+
 `;
 
 export const Span = styled.div`

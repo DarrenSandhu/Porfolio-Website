@@ -1,4 +1,4 @@
-import React from "react";
+import { React } from "react";
 import { Nav, NavContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, ButtonContainer, GitHubButton, MobileMenu, MobileMenuButton, MobileMenuLink, MobileLink, MobileMenuItems, MobileNavLogo, DropdownMenu, DropdownItem } from "./NavbarStyledComponents";
 import { FaBars } from "react-icons/fa";
 import { useTheme } from "styled-components";
@@ -8,16 +8,22 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MenuRounded } from "@mui/icons-material";
 
 
-const Navbar = () => {
+const Navbar = ({ isErrorPage }) => {
     const [isOpen, setIsOpen] = useState(false);
     const theme = useTheme();
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [user, setUser] = useState({});
+    const [isError, setIsError] = useState(isErrorPage);
+
+    // Function to handle clicking on the home link
+    const handleHomeClick = () => {
+        setIsError(false); // Set isError to false when clicking on home link
+    };
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
-    const [user, setUser] = useState({});
 
     useEffect(() => {
         getData();
@@ -36,7 +42,7 @@ const Navbar = () => {
         }
     };
     return (
-        <Nav>
+        <Nav isErrorPage={isError}>
             <NavContainer>
                 <NavLogo>
                     <img src="/logo.png" alt="logo"></img>
@@ -46,7 +52,7 @@ const Navbar = () => {
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
-                        <NavLink as={Link} to="/">Home</NavLink>
+                        <NavLink isErrorPage={isErrorPage} as={Link} to="/" >Home</NavLink>
                     </NavItem>
                     {/* <NavItem>
                         <NavLink as="div" onClick={toggleDropdown}>
@@ -60,13 +66,13 @@ const Navbar = () => {
                             )}
                     </NavItem> */}
                     <NavItem>
-                        <NavLink as={Link} to="/projects">Projects</NavLink>
+                        <NavLink isErrorPage={isErrorPage} as={Link} to="/projects">Projects</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink as={Link} to="/contact">Contact</NavLink>
+                        <NavLink isErrorPage={isErrorPage} as={Link} to="/contact">Contact</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink as={Link} to="/resume">Resume</NavLink>
+                        <NavLink isErrorPage={isErrorPage} as={Link} to="/resume">Resume</NavLink>
                     </NavItem>
                 </NavMenu>
                 <ButtonContainer>

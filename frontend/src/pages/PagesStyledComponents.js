@@ -21,3 +21,46 @@ export const Wrapper = styled.div`
   width: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
+
+export const ErrorTitle = styled.div`
+  font-weight: 700;
+  font-size: 50px;
+  color: ${({ theme }) => theme.text_primary};
+  line-height: 68px;
+  @media (max-width: 960px) {
+    text-align: center;
+  }
+  padding-bottom: 20px;
+
+  @media (max-width: 640px) {
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 8px;
+  }
+`;
+
+export const ErrorSubTitle = styled.div`
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 42px;
+  color: ${({ theme }) => theme.white};
+  padding-bottom: 20px;
+  @media (max-width: 960px) {
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+    line-height: 32px;
+  }
+`;
+// Black background with white text
+export const ErrorWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: ${({theme}) => theme.black};
+  color: ${({theme}) => theme.white};
+`;
