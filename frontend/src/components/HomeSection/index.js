@@ -32,7 +32,7 @@ const HomeSection = () => {
   };
 
   return (
-    <div id="about">
+    <div id="about" >
       <HomeContainer>
         <HomeBg>
             <ImageBackground />
