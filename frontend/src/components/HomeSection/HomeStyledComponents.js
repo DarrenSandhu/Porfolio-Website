@@ -2,6 +2,7 @@ import styled from "styled-components";
 import _default from "../../themes/default";
 import { motion } from "framer-motion";
 
+
 export const HomeContainer = styled.div`
   background: ${({ theme }) => theme.card_light};
   display: flex;
@@ -47,7 +48,6 @@ export const HomeContent = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1150px;
-  max-height: 600px;
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -214,12 +214,19 @@ export const ImageContainer = styled.div`
 `;
 
 export const Image = styled.img`
+  border-radius: 50%;
   width: 100%;
   height: 100%;
-  padding-bottom: 50px;
-  object-fit: cover;
-  object-position: center;
+  max-width: 600px;
+  max-height: 500px;
+  border: 2px solid ${({ theme }) => theme.primary};
+
+  @media (max-width: 640px) {
+    max-width: 280px;
+    max-height: 280px;
+  }
 `;
+
 
 export const AnimatedBackground = () => {
     return (

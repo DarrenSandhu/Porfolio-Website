@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 export const Nav = styled.div`
-  background-color: ${({ theme }) => theme.card_light};
+  background-color: black;
   height: 80px;
   display: flex;
   align-items: center;
@@ -62,7 +62,7 @@ export const MobileIcon = styled.div`
         font-size: 1.8rem;
         cursor: pointer;
     }
-    color: ${({ theme }) => theme.text_primary};
+    color: white;
 `;
 
 export const NavMenu = styled.ul`
@@ -127,14 +127,13 @@ export const GitHubButton = styled.a`
 `;
 
 export const NavLink = styled.a`
-    color: ${({theme}) => theme.text1};
+    color: white; /* Change text color to white if it's an error page */
     font-weight: 500;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     &:hover {
-      color: ${({theme}) => theme.primary};
-    }
+        color: ${({ theme }) => theme.primary};
 
 `;
 
@@ -154,7 +153,7 @@ export const MobileMenu = styled.div`
     right: 0;
     width: 100%;
     padding: 12px 40px 24px 40px;
-    background: ${({ theme }) => theme.card_light+20};
+    background: ${({ theme }) => theme.card_light+1};
     transition: all 0.6s ease-in-out;
     transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
     border-radius: 0 0 20px 20px;
@@ -205,7 +204,7 @@ export const MobileMenuButton = styled.a`
 
   :hover {
     background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.white};
+    color: white;
   }
 `;
 
@@ -241,7 +240,7 @@ export const DropdownMenu = styled.div`
   top: 100%;
   left: 0;
   background: white;
-  box-shadow: 0px 8px 16px rgba(0, 200, 300, 0.8);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 4px;
 `;
@@ -249,12 +248,10 @@ export const DropdownMenu = styled.div`
 export const DropdownItem = styled.a`
   padding: 12px 16px;
   display: block;
-  color: black;
+  color: white;
   text-decoration: none;
 
   &:hover {
-    background: ${({ theme }) => theme.bgLight};
+    background: white;
   }
 `;
-
-

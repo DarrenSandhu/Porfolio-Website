@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Nav, NavContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, ButtonContainer, GitHubButton, MobileMenu, MobileMenuButton, MobileMenuLink, MobileLink, MobileMenuItems, MobileNavLogo, DropdownMenu, DropdownItem } from "./NavbarStyledComponents";
+import { Nav, NavContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, ButtonContainer, GitHubButton, MobileMenu, MobileMenuButton, MobileMenuLink, MobileLink, MobileMenuItems, MobileNavLogo, DropdownMenu, DropdownItem } from "./ErrorNavStyledComponents";
 import { FaBars } from "react-icons/fa";
 import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
@@ -9,15 +9,16 @@ import { MenuRounded } from "@mui/icons-material";
 
 
 
-const Navbar = () => {
+const ErrorNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const theme = useTheme();
-    // const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const [user, setUser] = useState({});
 
-    // const toggleDropdown = () => {
-    //     setDropdownOpen(!dropdownOpen);
-    // };
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
 
 
     useEffect(() => {
@@ -109,4 +110,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default ErrorNavbar;

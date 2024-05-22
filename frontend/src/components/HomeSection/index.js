@@ -3,7 +3,7 @@ import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent, 
 import TypeWriter from 'typewriter-effect';
 import ImageBackground from '../AnimatedBackground';
 import { Link } from 'react-router-dom';
-
+import { Tilt } from 'react-tilt';
 
 
 
@@ -69,9 +69,9 @@ const HomeSection = () => {
             </ResumeButton>
           </HomeLeftContent>
           <HomeRightContent>
-            <ImageContainer>
+            <Tilt>
                 <Image src={user.image} alt="profile" />
-            </ImageContainer>
+            </Tilt>
           </HomeRightContent>
         </HomeContent>
       </HomeContainer>
