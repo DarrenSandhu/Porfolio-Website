@@ -48,7 +48,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled.a`
-  color: ${({ theme }) => theme.text_primary};
+  color: grey;
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.2s ease-in-out;

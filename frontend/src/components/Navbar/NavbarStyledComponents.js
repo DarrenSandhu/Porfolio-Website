@@ -127,8 +127,8 @@ export const GitHubButton = styled.a`
 `;
 
 export const NavLink = styled.a`
-    color: ${({theme}) => theme.text1};
-    font-weight: 500;
+    color: grey;
+    font-weight: 750;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease-in-out;

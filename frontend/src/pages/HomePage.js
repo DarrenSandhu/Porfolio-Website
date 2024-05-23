@@ -10,7 +10,7 @@ import Navbar from '../components/Navbar';
 const HomePage = () => {
     useEffect(() => {
         const pathname = window.location.pathname;
-        console.log(pathname);
+        // console.log(pathname);
     }, []);
     return (
         <Body>

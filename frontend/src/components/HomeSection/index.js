@@ -4,32 +4,32 @@ import TypeWriter from 'typewriter-effect';
 import ImageBackground from '../AnimatedBackground';
 import { Link } from 'react-router-dom';
 import { Tilt } from 'react-tilt';
-
+import { userData as reactUser } from '../../data/userData';
 
 
 const HomeSection = () => {
-  const [user, setUser] = useState({});
-  const [skills, setSkills] = useState([]);
+  const user = reactUser[0];
+  const skills = user.skills;
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
-  const getData = async () => {
-    try {
-        const userResponse = await fetch('/users')
-        const userData = await userResponse.json()
-        const user = userData[0]
-        const skills = user.skills
+  // const getData = async () => {
+  //   try {
+  //       const userResponse = await fetch('/users')
+  //       const userData = await userResponse.json()
+  //       const user = userData[0]
+  //       const skills = user.skills
 
-        setSkills(skills)
-        setUser(user)
-        console.log(skills)
-    } 
-    catch (error) {
-      console.error('Error fetching user data:', error);
-    }
-  };
+  //       setSkills(skills)
+  //       setUser(user)
+  //       // console.log(skills)
+  //   } 
+  //   catch (error) {
+  //     console.error('Error fetching user data:', error);
+  //   }
+  // };
 
   return (
     <div id="about" >

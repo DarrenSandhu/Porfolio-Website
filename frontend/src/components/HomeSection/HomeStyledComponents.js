@@ -193,8 +193,6 @@ export const ImageContainer = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
-    max-width: 600px;
-    max-height: 500px;
     border-radius: 80%;
     overflow: hidden;
     border: 1px solid ${({ theme }) => theme.primary};
@@ -215,14 +213,12 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
   border-radius: 50%;
-  width: 450px;
-  height: 100%; /* Maintain aspect ratio */
+  width: 650px;
+  height: 500px; /* Maintain aspect ratio */
   padding: 0; /* Adjust padding if needed */
   object-fit: cover;
   object-position: center;
   display: block; /* No need for flex properties on img itself */
-  max-width: 600px; /* Make sure max-width and max-height are equal */
-  max-height: 500px; /* to ensure circular shape */
   border: 1.8px solid ${({ theme }) => theme.primary};
 `;
 

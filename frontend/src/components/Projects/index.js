@@ -1,38 +1,12 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Container, Wrapper, Title, Desc, CardContainer, ToggleButtonGroup, ToggleButton, Divider } from './ProjectStyledComponents'
 import ProjectCard from '../Cards/ProjectCards'
+import { projects } from '../../data/userData'
 
 
 const Projects = ({openModal,setOpenModal}) => {
-  const [toggle, setToggle] = useState('all');
-
-  const [projects, setProjects] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = async () => {
-    try {
-        const projectsResponse = await fetch('/projects')
-        const projectsData = await projectsResponse.json()
-        const projects = projectsData
-
-        const categoriesResponse = await fetch('/categories')
-        const categoriesData = await categoriesResponse.json()
-        const categories = categoriesData
-
-        setCategories(categories)
-        setProjects(projects)
-        console.log(projects)
-        console.log(categories)
-    } 
-    catch (error) {
-      console.error('Error fetching user data:', error);
-    }
-  };
+  const [toggle, setToggle] = useState('all')
 
   return (
     <Container id="projects">

@@ -9,7 +9,7 @@ const ProjectsPage = () => {
     const [openModal, setOpenModal] = useState({ state: false, project: null });
     useEffect(() => {
         const pathname = window.location.pathname;
-        console.log(pathname);
+        // console.log(pathname);
     }, []);
     return (
         <Wrapper>
