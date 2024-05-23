@@ -6,7 +6,7 @@ import { projects } from '../../data/userData'
 
 
 const Projects = ({openModal,setOpenModal}) => {
-  const [toggle, setToggle] = useState('all')
+  const [toggle, setToggle] = useState('all');
 
   return (
     <Container id="projects">

@@ -472,7 +472,7 @@ export const projects = [
           "web app"
       ],
       date: "Jan 2023 - Mar 2023",
-      image: "http://localhost:8000/media/uploads/Screenshot_2024-05-21_at_00.43.18_Bfk5mED.png",
+      image: project1,
       url: "https://github.com/DarrenSandhu/PorfolioWebsite",
       programming_language: [
           "Python",

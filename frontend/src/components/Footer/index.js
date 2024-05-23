@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoLogoGithub } from "react-icons/io";
+import { userData as users } from "../../data/userData";
+
+const user = users[0];
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -83,24 +86,6 @@ const Copyright = styled.p`
 `;
 
 const Footer = () => {
-    const [user, setUser] = useState({});
-
-    useEffect(() => {
-        getData();
-    }, []);
-
-    const getData = async () => {
-        try {
-            const userResponse = await fetch('/users')
-            const userData = await userResponse.json()
-            const user = userData[0]
-
-            setUser(user)
-        } 
-        catch (error) {
-        console.error('Error fetching user data:', error);
-        }
-    };
     return (
         <FooterContainer>
         <FooterWrapper>
