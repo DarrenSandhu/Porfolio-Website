@@ -13,13 +13,15 @@ import { userData as user } from "../../data/userData";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const theme = useTheme();
-    const user = user[0];
+    const reactUser = user[0];
     
     return (
         <Nav>
             <NavContainer>
                 <NavLogo>
-                    <img src="/logo.png" alt="logo"></img>
+                    <NavLink as={Link} to="/">
+                        <img src="/logo.png" alt="logo" ></img>
+                    </NavLink>
                 </NavLogo>
                 <MobileIcon onClick={() => setIsOpen(!isOpen)}>
                     <MenuRounded style={{ color: "inherit" }} />
@@ -50,7 +52,7 @@ const Navbar = () => {
                     </NavItem>
                 </NavMenu>
                 <ButtonContainer>
-                    <GitHubButton href={user.github} target="_blank"> 
+                    <GitHubButton href={reactUser.github} target="_blank"> 
                         GitHub Profile
                     </GitHubButton>
                 </ButtonContainer>
@@ -72,7 +74,7 @@ const Navbar = () => {
                         Resume
                     </NavLink>
                     <GitHubButton
-                        href={user.github}
+                        href={reactUser .github}
                         target="_Blank"
                         style={{
                             background: theme.primary,
