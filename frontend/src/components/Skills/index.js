@@ -7,7 +7,7 @@ const Skills = () => {
   return (
     <Container id="skills">
       <Wrapper>
-        <Title>Skills</Title>
+        <Title>Tech Stack</Title>
         <Desc>I've been programming since the age of 12. <br/> Here are the skills I've learnt so far! 🚀
         </Desc>
         <SkillsContainer>

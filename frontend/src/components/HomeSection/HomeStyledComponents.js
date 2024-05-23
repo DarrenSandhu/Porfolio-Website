@@ -31,7 +31,7 @@ export const HomeBg = styled.div`
   width: 80%;
   height: 90%;
   overflow: hidden;
-  padding: 0 30px;
+  padding: 0 80px;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 
@@ -215,18 +215,16 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
   border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  max-width: 600px;
-  max-height: 500px;
-  border: 2px solid ${({ theme }) => theme.primary};
-
-  @media (max-width: 640px) {
-    max-width: 280px;
-    max-height: 280px;
-  }
+  width: 450px;
+  height: 100%; /* Maintain aspect ratio */
+  padding: 0; /* Adjust padding if needed */
+  object-fit: cover;
+  object-position: center;
+  display: block; /* No need for flex properties on img itself */
+  max-width: 600px; /* Make sure max-width and max-height are equal */
+  max-height: 500px; /* to ensure circular shape */
+  border: 1.8px solid ${({ theme }) => theme.primary};
 `;
-
 
 export const AnimatedBackground = () => {
     return (
@@ -236,7 +234,7 @@ export const AnimatedBackground = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
-          style={{ backgroundColor: 'rgba(0, 123, 255, 0.5)' }} // Blue color with some transparency
+          style={{ backgroundColor: 'rgba(0, 200, 300, 0.5)' }} // Blue color with some transparency
         />
       </Background>
     );
@@ -244,7 +242,7 @@ export const AnimatedBackground = () => {
   
   const Background = styled.div`
     width: 100%;
-    height: 100vh; /* Adjust height as needed */
+    height: 100%; /* Adjust height as needed */
     position: absolute;
     top: 0;
     left: 0;
@@ -257,7 +255,7 @@ export const AnimatedBackground = () => {
       position: absolute;
       top: 0;
       left: 0;
-      background: linear-gradient(225deg, rgba(0, 123, 255, 0.5), rgba(0, 123, 255, 0.8));
+      background: linear-gradient(225deg, rgba(0, 200, 300, 0.5), rgba(0, 200, 300, 0.8));
       clip-path: circle(50% at 50% 50%);
     }
 `;
