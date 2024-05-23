@@ -13,6 +13,7 @@ import { userData as user } from "../../data/userData";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const theme = useTheme();
+    const user = user[0];
     
     return (
         <Nav>
