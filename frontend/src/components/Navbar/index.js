@@ -6,36 +6,14 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { MenuRounded } from "@mui/icons-material";
+import { userData as user } from "../../data/userData";
 
 
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const theme = useTheme();
-    // const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [user, setUser] = useState({});
-
-    // const toggleDropdown = () => {
-    //     setDropdownOpen(!dropdownOpen);
-    // };
-
-
-    useEffect(() => {
-        getData();
-    }, []);
-
-    const getData = async () => {
-        try {
-            const userResponse = await fetch('/users')
-            const userData = await userResponse.json()
-            const user = userData[0]
-
-            setUser(user)
-        } 
-        catch (error) {
-        console.error('Error fetching user data:', error);
-        }
-    };
+    
     return (
         <Nav>
             <NavContainer>

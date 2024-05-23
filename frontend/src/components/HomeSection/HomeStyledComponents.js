@@ -213,7 +213,7 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
   border-radius: 50%;
-  width: 650px;
+  width: 460px;
   height: 500px; /* Maintain aspect ratio */
   padding: 0; /* Adjust padding if needed */
   object-fit: cover;
