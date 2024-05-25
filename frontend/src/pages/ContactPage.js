@@ -4,10 +4,6 @@ import { useEffect } from 'react';
 import { FloatingWhatsApp } from '@carlos8a/react-whatsapp-floating-button';
 
 const ContactPage = ({ user }) => {
-    useEffect(() => {
-        const pathname = window.location.pathname;
-        // console.log(pathname);
-    }, []);
     return (
         <>
             <Wrapper>

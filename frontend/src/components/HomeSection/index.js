@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent, Title, SubTitle, TextLoop, Span, ResumeButton, Image, ImageContainer } from "./HomeStyledComponents";
+import { HomeContainer, HomeBg, HomeContent, HomeLeftContent, HomeRightContent, Title, SubTitle, TextLoop, Span, ResumeButton, Image, ImageContainer, AnimatedBackground } from "./HomeStyledComponents";
 import TypeWriter from 'typewriter-effect';
 import ImageBackground from '../AnimatedBackground';
 import { Link } from 'react-router-dom';
 import { Tilt } from 'react-tilt';
+import MotionParticleBackground from '../3DBackground/MotionBackground';
+
 
 
 const HomeSection = ({ userData }) => {
@@ -44,7 +46,7 @@ const HomeSection = ({ userData }) => {
                 ))}
             </SubTitle>
             <ResumeButton as={Link} to="/resume">
-                Check My CV
+                View Resume
             </ResumeButton>
           </HomeLeftContent>
           <HomeRightContent>

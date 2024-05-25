@@ -6,10 +6,6 @@ import { FloatingWhatsApp } from '@carlos8a/react-whatsapp-floating-button';
 
 const ProjectsPage = ({ projectsData, user, categories }) => {
     const [openModal, setOpenModal] = useState({ state: false, project: null });
-    useEffect(() => {
-        const pathname = window.location.pathname;
-        // console.log(pathname);
-    }, []);
     return (
         <>
             <Wrapper>

@@ -70,6 +70,7 @@ export const ContactTitle = styled.div`
   margin-bottom: 6px;
   font-weight: 600;
   color: ${({ theme }) => theme.text_primary};
+  text-align: center;
 `;
 
 export const ContactInput = styled.input`
@@ -110,18 +111,24 @@ export const ContactButton = styled.input`
   background: -webkit-linear-gradient(225deg, hsla(197, 100%, 70%, 1) 0%, hsla(210, 100%, 70%, 1) 100%);  
   padding: 13px 16px;
   margin-top: 2px;
-  border-radius: 12px;
+  border-radius: 30px;
+  width: 50%;
+  height: 100%;
+  align-self: center;
   border: none;
-  color: ${({ theme }) => theme.text_primary};
-  font-size: 18px;
-  font-weight: 600;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
   cursor: pointer;
   &:hover {
     background: hsla(197, 100%, 60%, 1); /* Slightly darker blue on hover */
     background: linear-gradient(225deg, hsla(197, 100%, 60%, 1) 0%, hsla(210, 100%, 60%, 1) 100%);
     background: -moz-linear-gradient(225deg, hsla(197, 100%, 60%, 1) 0%, hsla(210, 100%, 60%, 1) 100%);
     background: -webkit-linear-gradient(225deg, hsla(197, 100%, 60%, 1) 0%, hsla(210, 100%, 60%, 1) 100%);
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    transform: scale(1.05)
+  }
+  &:active {
+    transform: scale(0.95)
   }
 `;
 
@@ -142,3 +149,11 @@ export const WhatsAppButton = styled.a`
   }
 `;
 
+export const ErrorNotification = styled.div`
+  color: rgba(285, 0, 0, 0.9);
+  font-size: 14px;
+  margin-top: -10px;
+  text-align: left;
+  background-color: rgba(255, 0, 0, 0.05);
+  border-radius: 6px;
+`;

@@ -11,6 +11,8 @@ import ResumePage from './pages/ResumePage';
 import ErrorPage from './pages/ErrorPage';
 import Footer from './components/Footer';
 import { useState, useEffect } from 'react';
+import MotionParticleBackground from './components/3DBackground/MotionBackground';
+
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -65,7 +67,6 @@ function App() {
       const categoryNames = categoryData.map((category) => category.name);
       const filteredCategoryNames = ['all', ...categoryNames];
       setCategoriesData(filteredCategoryNames);
-      console.log(categoryNames);
     } catch (error) {
       console.error('Error fetching category data:', error);
     }

@@ -6,10 +6,6 @@ import { FloatingWhatsApp } from '@carlos8a/react-whatsapp-floating-button';
 
 
 const HomePage = ({ userData }) => {
-    useEffect(() => {
-        const pathname = window.location.pathname;
-        // console.log(pathname);
-    }, []);
     return (
         <Body>
             <HomeSection userData={userData} />

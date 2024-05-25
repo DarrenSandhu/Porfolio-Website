@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import _default from "../../themes/default";
 import { motion } from "framer-motion";
-
+import { blue } from "@mui/material/colors";
+import { Link } from "react-router-dom";
 
 export const HomeContainer = styled.div`
   background: ${({ theme }) => theme.card_light};
@@ -148,46 +149,46 @@ export const SubTitle = styled.div`
   }
 `;
 
-export const ResumeButton = styled.a`
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    width: 95%;
-    max-width: 300px;
-    text-align: center;
-    padding: 16px 0;
-    color:${({ theme }) => theme.white};
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 650;
-    transition: all 0.2s ease-in-out !important;
-    background: hsla(271, 100%, 50%, 1);
+export const ResumeButton = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "left",
+        alignItems: "center",
+        gap: "12px",
+        backgroundColor: "transparent",
+        background: "transparent",
+        borderRadius: "60px",
+        width: "95%",
+        maxWidth: "300px",
+        padding: "14px 1px",
+      }}
+    >
+      <Link to="/resume" >
+        <motion.button
+          whileHover={{ scale: 1.1, boxShadow: "0 0 50px 10px rgba(0,200,255,0.3)" }}
+          whileTap={{ scale: 0.9 }}
+          style={{
+            background: "linear-gradient(225deg, #00c8ff, #007aff, #007aff)",
+            boxShadow: "0 0 16px 10px rgba(0,200,255,0.3)",
+            color: "white",
+            width: "100%",
+            padding: "12px 24px",
+            border: "none",
+            borderRadius: "30px",
+            cursor: "pointer",
+            fontSize: "20px",
+            fontWeight: "800",
+          }}
+        >
+          Check My CV
+        </motion.button>
+      </Link>
+    </div>
+  );
+};
 
-    /* Updated gradient background to blue tonal colors */
-    background: linear-gradient(225deg, hsla(210, 100%, 60%, 1) 0%, hsla(210, 100%, 40%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(210, 100%, 60%, 1) 0%, hsla(210, 100%, 40%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(210, 100%, 60%, 1) 0%, hsla(210, 100%, 40%, 1) 100%);
-    
-    /* Updated box-shadow for blue theme */
-    box-shadow:  0px 10px 20px #a0c4ff,
-                 -0px -10px 20px #d6e0ff;
-    
-    &:hover {
-        transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
-    }    
-    
-    
-    @media (max-width: 640px) {
-        padding: 12px 0;
-        font-size: 18px;
-    } 
-
-`;
 
 export const ImageContainer = styled.div`
     position: relative;
@@ -222,21 +223,7 @@ export const Image = styled.img`
   border: 1.8px solid ${({ theme }) => theme.primary};
 `;
 
-export const AnimatedBackground = () => {
-    return (
-      <Background>
-        <motion.div
-          className="motion-bg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          style={{ backgroundColor: 'rgba(0, 200, 300, 0.5)' }} // Blue color with some transparency
-        />
-      </Background>
-    );
-  };
-  
-  const Background = styled.div`
+const Background = styled.div`
     width: 100%;
     height: 100%; /* Adjust height as needed */
     position: absolute;
@@ -255,3 +242,18 @@ export const AnimatedBackground = () => {
       clip-path: circle(50% at 50% 50%);
     }
 `;
+
+export const AnimatedBackground = () => {
+    return (
+      <Background>
+        <motion.div
+          className="motion-bg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          style={{ backgroundColor: 'rgba(0, 200, 300, 0.5)' }} // Blue color with some transparency
+        />
+      </Background>
+    );
+  };
+  

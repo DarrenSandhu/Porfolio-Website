@@ -7,7 +7,6 @@ import ProjectCard from '../Cards/ProjectCards'
 const Projects = ({openModal,setOpenModal, projectsData, categories}) => {
   const [toggle, setToggle] = useState('all');
   const projects = projectsData;
-  console.log(categories);
 
   return (
     <Container id="projects">
