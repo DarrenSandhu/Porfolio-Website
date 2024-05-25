@@ -1,32 +1,35 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Container, Wrapper, Title, Desc, CardContainer, ToggleButtonGroup, ToggleButton, Divider } from './ProjectStyledComponents'
 import ProjectCard from '../Cards/ProjectCards'
-import { projects } from '../../data/userData'
 
 
-const Projects = ({openModal,setOpenModal}) => {
+const Projects = ({openModal,setOpenModal, projectsData, categories}) => {
   const [toggle, setToggle] = useState('all');
+  const projects = projectsData;
+  console.log(categories);
 
   return (
     <Container id="projects">
       <Wrapper>
         <Title>Projects</Title>
         <Desc>
-          I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
+          I have worked on a wide range of projects. From web apps to machine learning apps. <br/>
+          Here are some of my projects.
         </Desc>
         <ToggleButtonGroup>
-          {['all', 'web app', 'android app', 'machine learning'].map((category) => (
-            <React.Fragment key={`category-${category}`}>
+          {categories.map((category, index) => (
+            <>
               <ToggleButton
                 active={toggle === category}
                 value={category}
                 onClick={() => setToggle(category)}
+                key={`category-${index}`}
               >
                 {category.toUpperCase()}
               </ToggleButton>
-              <Divider />
-            </React.Fragment>
+              {index < categories.length - 1 && <Divider />}
+            </>
           ))}
         </ToggleButtonGroup>
         <CardContainer>

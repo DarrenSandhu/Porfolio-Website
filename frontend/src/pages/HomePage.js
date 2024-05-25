@@ -1,24 +1,32 @@
-
 import HomeSection from '../components/HomeSection';
 import Skills from '../components/Skills';
 import { Body, Wrapper } from './PagesStyledComponents';
 import { useEffect } from 'react';
-import Navbar from '../components/Navbar';
+import { FloatingWhatsApp } from '@carlos8a/react-whatsapp-floating-button';
 
 
-
-const HomePage = () => {
+const HomePage = ({ userData }) => {
     useEffect(() => {
         const pathname = window.location.pathname;
         // console.log(pathname);
     }, []);
     return (
         <Body>
-            <Navbar/>
-            <HomeSection/>
+            <HomeSection userData={userData} />
             <Wrapper>
                 <Skills />
             </Wrapper>
+            <FloatingWhatsApp
+                phoneNumber="447428117134"
+                accountName="Darren Sandhu"
+                allowEsc
+                allowClickAway
+                notification
+                notificationSound
+                initialMessageByServer='Hello, how can I help you?'
+                placeholder='Send a message...'
+                avatar={userData.image}
+            />
         </Body>
     )
 };

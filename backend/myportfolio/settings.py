@@ -30,16 +30,17 @@ SECRET_KEY = 'django-insecure-7#^2gcjxgfmdtofm8%qpgv_2+ee_w=laoupy7k!(&x9)ze_!k7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://darrensandhu.uk", "localhost:8000", "localhost"]
+ALLOWED_HOSTS = ["*", "localhost:3000"]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
     ),
-    "DEFAULT_PERMISSION_CLASSES": [
+    "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
-    ],
+    ),
 }
 
 SIMPLE_JWT = {
@@ -138,7 +139,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -149,8 +149,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'  # URL to use when referring to static files located in STATIC_ROOT.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # The absolute path to the directory where collectstatic will collect static files for deployment.
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWS_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://darrensandhu.uk',
+    'https://darrensandhu.uk',
+    'http://api.darrensandhu.uk',
+    'https://api.darrensandhu.uk',
+]
+
+ACCESS_CONTROL_ALLOW_ORIGIN = [
+    'http://darrensandhu.uk',
+    'https://darrensandhu.uk',
+    'http://api.darrensandhu.uk',
+    'https://api.darrensandhu.uk',
+]
+
+

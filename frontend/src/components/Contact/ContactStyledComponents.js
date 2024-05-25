@@ -125,3 +125,20 @@ export const ContactButton = styled.input`
   }
 `;
 
+export const WhatsAppButton = styled.a`
+  display: inline-block;
+  background-color: #25d366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #1ebe57;
+  }
+`;
+

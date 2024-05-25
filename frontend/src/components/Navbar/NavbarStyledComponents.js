@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 export const Nav = styled.div`
-  background-color: ${({ theme }) => theme.card_light};
+  background-color: ${(props) => (props.color ? props.color : props.theme.card_light)};
   height: 80px;
   display: flex;
   align-items: center;
@@ -62,7 +62,7 @@ export const MobileIcon = styled.div`
         font-size: 1.8rem;
         cursor: pointer;
     }
-    color: ${({ theme }) => theme.text_primary};
+    color: ${(props) => (props.color ? props.color : props.theme.text_primary)};
 `;
 
 export const NavMenu = styled.ul`
@@ -127,7 +127,7 @@ export const GitHubButton = styled.a`
 `;
 
 export const NavLink = styled.a`
-    color: grey;
+    color: ${(props) => (props.color ? props.color : 'grey')};
     font-weight: 750;
     cursor: pointer;
     text-decoration: none;
@@ -154,7 +154,7 @@ export const MobileMenu = styled.div`
     right: 0;
     width: 100%;
     padding: 12px 40px 24px 40px;
-    background: ${({ theme }) => theme.card_light+20};
+    background: ${({ theme }) => theme.card_light};
     transition: all 0.6s ease-in-out;
     transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
     border-radius: 0 0 20px 20px;
@@ -195,7 +195,6 @@ export const MobileMenuButton = styled.a`
   align-items: center;
   height: 70%;
   border-radius: 20px;
-  color: ${({ theme }) => theme.primary};
   cursor: pointer;
   padding: 0 20px;
   font-weight: 500;

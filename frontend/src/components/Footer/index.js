@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IoLogoGithub } from "react-icons/io";
-import { userData as users } from "../../data/userData";
 
-const user = users[0];
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -14,6 +12,7 @@ const FooterContainer = styled.div`
   justify-content: center;
   position: relative;
   z-index: 1;
+  background-color: ${({ color }) => color};
 `;
 
 const FooterWrapper = styled.div`
@@ -51,7 +50,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled.a`
-  color: grey;
+  color: ${(props) => (props.color ? props.color : 'grey')};
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.2s ease-in-out;
@@ -85,26 +84,29 @@ const Copyright = styled.p`
   text-align: center;
 `;
 
-const Footer = () => {
-    return (
-        <FooterContainer>
-        <FooterWrapper>
-            <Logo>Darren Sandhu</Logo>
-            <Nav>
-            <NavLink as={Link} to='/'>About</NavLink>
-            <NavLink as={Link} to="/projects">Projects</NavLink>
-            <NavLink as={Link} to="/contact">Contact</NavLink>
-            <NavLink as={Link} to="/resume">Resume</NavLink>
-            </Nav>
-            <SocialMediaIcons>
-            <SocialMediaIcon href={user.github} target="display">
-                <IoLogoGithub />
-            </SocialMediaIcon>
-            </SocialMediaIcons>
-            <Copyright>&copy; 2024 Darren Sandhu. All rights reserved.</Copyright>
-        </FooterWrapper>
-        </FooterContainer>
-    );
+const Footer = ({user}) => {
+  let location = useLocation();
+  const isErrorPage = location.pathname === "/404"; 
+
+  return (
+    <FooterContainer color={isErrorPage ? "black" : "white"}>
+      <FooterWrapper>
+          <Logo>Darren Sandhu</Logo>
+          <Nav>
+          <NavLink as={Link} to='/' color={isErrorPage ? "white" : "grey"}>About</NavLink>
+          <NavLink as={Link} to="/projects" color={isErrorPage ? "white" : "grey"}>Projects</NavLink>
+          <NavLink as={Link} to="/contact" color={isErrorPage ? "white" : "grey"}>Contact</NavLink>
+          <NavLink as={Link} to="/resume" color={isErrorPage ? "white" : "grey"}>Resume</NavLink>
+          </Nav>
+          <SocialMediaIcons>
+          <SocialMediaIcon href={user.github} target="display">
+              <IoLogoGithub />
+          </SocialMediaIcon>
+          </SocialMediaIcons>
+          <Copyright>&copy; 2024 Darren Sandhu. All rights reserved.</Copyright>
+      </FooterWrapper>
+    </FooterContainer>
+  );
 };
 
 export default Footer;
