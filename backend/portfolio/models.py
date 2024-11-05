@@ -67,6 +67,8 @@ class Project(models.Model):
     category = models.ManyToManyField(Category, default='web app')
     image = models.ImageField(upload_to='uploads/')
     url = models.URLField()
+    repo = models.CharField(max_length=100)
+    repoID = models.CharField(max_length=100)
     programming_language = models.ManyToManyField(Programming, related_name='projects')
 
     def __str__(self):

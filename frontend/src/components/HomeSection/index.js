@@ -45,9 +45,7 @@ const HomeSection = ({ userData }) => {
                     </React.Fragment>
                 ))}
             </SubTitle>
-            <ResumeButton as={Link} to="/resume">
-                View Resume
-            </ResumeButton>
+            <ResumeButton/>
           </HomeLeftContent>
           <HomeRightContent>
             <Tilt>

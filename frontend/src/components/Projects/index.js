@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Container, Wrapper, Title, Desc, CardContainer, ToggleButtonGroup, ToggleButton, Divider } from './ProjectStyledComponents'
 import ProjectCard from '../Cards/ProjectCards'
-
+import Giscus from '@giscus/react';
 
 const Projects = ({openModal,setOpenModal, projectsData, categories}) => {
   const [toggle, setToggle] = useState('all');

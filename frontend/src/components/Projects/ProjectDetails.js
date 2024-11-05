@@ -2,7 +2,7 @@ import { CloseRounded, GitHub, LinkedIn } from "@mui/icons-material";
 import { Modal } from "@mui/material";
 import React from "react";
 import { Button, ButtonGroup, Container, Date, Desc, Image, Tag, Tags, Title, Wrapper, Label, Member, MemberImage, MemberName, Members } from "./ProjDetailsStyledComponents";
-
+import Giscus from '@giscus/react';
 
 const ProjectDetails = ({ openModal, setOpenModal }) => {
   const project = openModal?.project;
@@ -37,6 +37,25 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
             </Button>
             
           </ButtonGroup>
+          <Date style={{marginTop: "50px", marginBottom: "50px", textAlign: "center"}}>
+            Discuss My {project?.title}
+          </Date>
+          <Giscus 
+            style={{marginTop: "20px"}}
+            id="comments"
+            repo={project?.repo} 
+            repoId={project?.repoId}
+            category="Announcements"
+            categoryId="DIC_kwDOF1L2fM4B-hVS"
+            mapping="specific"
+            term="Welcome to @giscus/react component!"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            inputPosition="top"
+            theme="light"
+            lang="en"
+            loading="lazy"
+          />
         </Wrapper>
       </Container>
     </Modal>

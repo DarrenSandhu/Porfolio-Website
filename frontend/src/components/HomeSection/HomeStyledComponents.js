@@ -154,8 +154,8 @@ export const ResumeButton = () => {
     <div
       style={{
         display: "flex",
-        justifyContent: "left",
-        alignItems: "center",
+        textAlign: "center",
+        justifyContent: "center",
         gap: "12px",
         backgroundColor: "transparent",
         background: "transparent",
@@ -167,11 +167,11 @@ export const ResumeButton = () => {
     >
       <Link to="/resume" >
         <motion.button
-          whileHover={{ scale: 1.1, boxShadow: "0 0 50px 10px rgba(0,200,255,0.3)" }}
+          whileHover={{ scale: 1.1, boxShadow: "0 0 20px 5px rgba(0,100,255,0.2)" }}
           whileTap={{ scale: 0.9 }}
           style={{
             background: "linear-gradient(225deg, #00c8ff, #007aff, #007aff)",
-            boxShadow: "0 0 16px 10px rgba(0,200,255,0.3)",
+            boxShadow: "0 0 20px 5px rgba(0,100,300,0.2)",
             color: "white",
             width: "100%",
             padding: "12px 24px",
@@ -180,6 +180,7 @@ export const ResumeButton = () => {
             cursor: "pointer",
             fontSize: "20px",
             fontWeight: "800",
+            alignContent: "center",
           }}
         >
           Check My CV

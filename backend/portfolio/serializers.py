@@ -40,7 +40,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Category.objects.all())
     class Meta:
         model = Project
-        fields = ['id', 'title', 'description', 'category', 'date', 'image', 'url', 'programming_language']
+        fields = ['id', 'title', 'description', 'category', 'date', 'image', 'url', 'repo', 'repoID', 'programming_language']
     
     def get_image_url(self, obj):
         request = self.context.get('request')
