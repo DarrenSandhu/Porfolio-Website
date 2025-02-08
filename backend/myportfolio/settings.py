@@ -167,4 +167,5 @@ ACCESS_CONTROL_ALLOW_ORIGIN = [
     'https://api.darrensandhu.uk',
 ]
 
-
+# Ensure X_FRAME_OPTIONS is set to ALLOWALL if you want to allow embedding
+X_FRAME_OPTIONS = 'ALLOWALL'
