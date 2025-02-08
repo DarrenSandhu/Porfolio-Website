@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -19,6 +20,9 @@ class Skill(models.Model):
     def __str__(self):
         return self.name 
 # Custom user model
+def validate_pdf(value):
+    if not value.name.endswith('.pdf'):
+        raise ValidationError('Only PDF files are allowed.')
 class CustomUser(models.Model):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=100)
@@ -27,6 +31,7 @@ class CustomUser(models.Model):
     github = models.URLField()
     skills = models.ManyToManyField(Skill)
     date_of_birth = models.DateField(null=True, blank=True)
+    cv = models.FileField(upload_to='uploads/', blank=True, validators=[validate_pdf])
 
 class Education(models.Model):
     degree = models.CharField(max_length=100, blank=True)
