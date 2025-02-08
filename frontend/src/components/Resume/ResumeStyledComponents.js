@@ -11,7 +11,7 @@ export const PDFContainer = styled.div`
   overflow: auto;
 `;
 
-export const PDFFrame = styled.iframe`
+export const PDFFrame = styled.embed`
   width: 100%;
   height: 100%;
   border: none;
