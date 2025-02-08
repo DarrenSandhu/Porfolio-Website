@@ -19,11 +19,18 @@ class UserSerializer(serializers.ModelSerializer):
     skills = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Skill.objects.all())
     class Meta:
         model = CustomUser
-        fields = ['id', 'email', 'name', 'bio', 'image', 'date_of_birth', 'github', 'skills']
+        fields = ['id', 'email', 'name', 'bio', 'image', 'date_of_birth', 'github', 'skills', 'cv']
 
     def get_image_url(self, obj):
         request = self.context.get('request')
         return request.build_absolute_uri(obj.image.url)
+    
+    def get_cv_url(self, obj):
+        """
+        Get absolute URL for the cv field.
+        """
+        request = self.context.get('request')
+        return request.build_absolute_uri(obj.cv.url) 
 
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
