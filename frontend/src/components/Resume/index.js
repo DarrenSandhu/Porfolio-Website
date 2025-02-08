@@ -7,8 +7,9 @@ import { Container, Wrapper, Title, Desc, PDFContainer, PDFFrame, DownloadButton
 
 
 
-const Resume = () => {
-    const pdfUrl = process.env.PUBLIC_URL + '/Darren_CV.pdf';
+const Resume = ({ userData }) => {
+    const user = userData;
+    const pdfUrl = process.env.PUBLIC_URL + '/Darren_Sandhu_CV.pdf';
     return (
         <Container id="resume">
             <Wrapper>

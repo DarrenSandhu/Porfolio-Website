@@ -18,7 +18,7 @@ import { useApi } from './data/apiUserData';
 
 
 function App() {
-  const {education, programming, user, skills, experience, projects, categories} = useApi();
+  const {user, projects, categories} = useApi();
 
   return (
     <ThemeProvider theme={lightTheme}>

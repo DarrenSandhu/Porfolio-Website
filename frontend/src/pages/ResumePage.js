@@ -7,7 +7,7 @@ const ResumePage = ({ user }) => {
     return (
         <>
             <Wrapper>
-                <Resume/>
+                <Resume userData={user}/>
             </Wrapper>
             <FloatingWhatsApp
                 phoneNumber="447428117134"
