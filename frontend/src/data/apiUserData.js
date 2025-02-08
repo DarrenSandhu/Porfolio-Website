@@ -27,6 +27,7 @@ export const useApi = () => {
       }
       const userData = await response.json();
       const user = userData[0];
+      console.log('user:', user);
       setUser(user);
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -59,10 +60,11 @@ export const useApi = () => {
       const projectsData = await projectsResponse.json();
       setProjects(projectsData);
 
-      const response = await fetch('https://api.darrensandhu.uk/categories/');
-      const categoryData = await response.json();
+      const categoryResponse = await fetch('https://api.darrensandhu.uk/categories/');
+      const categoryData = await categoryResponse.json();
       const categoryNames = categoryData.map((category) => category.name);
-      const filteredCategoryNames = ['all', ...categoryNames];
+      const filteredCategoryNames = [...categoryNames];
+      filteredCategoryNames.sort((a, b) => (a === "all" ? -1 : b === "all" ? 1 : a.localeCompare(b)));
       setCategories(filteredCategoryNames);
 
     } catch (error) {
