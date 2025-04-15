@@ -133,6 +133,14 @@ const ProjectCards = ({project,setOpenModal}) => {
                 </Tag>
                 ))}
             </Tags>
+            {/* Display Project Categories (Newly added section) */}
+            <Tags>
+                {project.categories?.map((category, index) => (
+                    <Tag key={`category-${index}`}>
+                        {category}
+                    </Tag>
+                ))}
+            </Tags>
             <Details>
                 <Title>{project.title}</Title>
                 <Date>{project.date}</Date>
