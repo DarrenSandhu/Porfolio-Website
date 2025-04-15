@@ -58,6 +58,7 @@ export const useApi = () => {
 
       const projectsResponse = await fetch('https://api.darrensandhu.uk/projects/', { headers });
       const projectsData = await projectsResponse.json();
+      projectsData.sort((a, b) => a.title.localeCompare(b.title));
       setProjects(projectsData);
 
       const categoryResponse = await fetch('https://api.darrensandhu.uk/categories/');

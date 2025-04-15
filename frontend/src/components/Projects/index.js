@@ -37,10 +37,10 @@ const Projects = ({openModal,setOpenModal, projectsData, categories}) => {
               <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal} key={`project-${index}`}/>
             ))}
           {projects
-            .filter((item) => item.category == toggle)
-            .map((project, index_1) => (
-              <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal} key={`project-${index_1}`}/>
-            ))}
+            .filter((item) => item.category?.includes(toggle))
+              .map((project, index_1) => (
+                <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal} key={`project-${index_1}`}/>
+              ))}
         </CardContainer>
       </Wrapper>
     </Container>
